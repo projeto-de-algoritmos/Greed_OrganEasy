@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarContainer {
+  position: fixed;
+  background-color: #bfbfbf;
+  height: 100vh;
+  width: 400px;
+  z-index: 10;
+  text-align: center;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.titleSidebar {
+  margin: 20px;
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: 450;
+}
+
+.formSidebar {
+  display: inline-flex;
+  flex-direction: column;
+  width: 70%;
+  margin-top: 60px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.formSidebar > label{
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.formSidebar > input {
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

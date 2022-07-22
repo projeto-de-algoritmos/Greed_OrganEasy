@@ -1,0 +1,10 @@
+.resultContainer {
+  position: relative;
+  margin: auto;
+  padding-left: 400px;
+}
+
+.resultButton {
+  justify-content: center;
+  text-align: center;
+}

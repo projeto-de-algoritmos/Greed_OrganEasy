@@ -1,0 +1,10 @@
+.mainContainer {
+  position: relative;
+  margin: auto;
+  padding-left: 400px;
+}
+
+.mainButton {
+  justify-content: center;
+  text-align: center;
+}

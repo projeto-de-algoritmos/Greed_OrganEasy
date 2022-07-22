@@ -1,0 +1,22 @@
+.buttonContainer {
+  background-color: black;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.buttonContainerBig {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  width: 250px;
+  height: 40px;
+  cursor: pointer;
+}
