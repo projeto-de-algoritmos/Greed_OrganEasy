@@ -35,12 +35,13 @@ const Result = () => {
               return (
                 <div key={index}>
                   <Card
+                    result
                     task={item.name}
                     deliveryTime={item.delivery}
                     runtime={item.runtime}
                     start={msToTime(item.start)}
                     end={msToTime(item.end)}
-                    delay={msToTime(item.delay)}
+                    delay={item.delay}
                     is_late={item.is_late}
                   />
                 </div>

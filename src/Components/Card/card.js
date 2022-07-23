@@ -10,6 +10,7 @@ const Card = ({
   is_late,
   delay,
   trash,
+  result,
   onClick,
 }) => {
   function msToTime(duration) {
@@ -35,12 +36,16 @@ const Card = ({
       <div className="titleCard">{task}</div>
       <div className="textCard">Entrega - {msToTime(deliveryTime)} hrs</div>
       <div className="textCard">Execução - {msToTime(runtime)} hrs</div>
-      <div className="textCard">Início - {start} hrs</div>
-      <div className="textCard">Fim - {end} hrs</div>
-      <div className="textCard">
-        {delay <= 0 ? "Tempo Livre" : "Período"} - {" "}
-        {delay <= 0 ? -1 * delay : delay} hrs
-      </div>
+      {result && (
+        <>
+          <div className="textCard">Início - {start} hrs</div>
+          <div className="textCard">Fim - {end} hrs</div>
+          <div className="textCard">
+            {delay <= 0 ? "Tempo Livre" : "Atraso"} -{" "}
+            {delay <= 0 ? msToTime(-1 * delay) : msToTime(delay)} hrs
+          </div>
+        </>
+      )}
     </div>
   );
 };

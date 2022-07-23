@@ -20,7 +20,6 @@ const SideBar = ({ setOnClick }) => {
     const resultRuntime =
       +timeParts2[0] * (60000 * 60) + +timeParts2[1] * 60000;
 
-    console.log(resultDelivery);
     setOnClick({
       name: nameTask,
       delivery: Number(resultDelivery),

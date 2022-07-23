@@ -2,7 +2,6 @@ import heapSort from "./heapTasks";
 
 const scheduleTasks = (tasks) => {
   var ordered_tasks = heapSort(tasks);
-  console.log("TAREFAS ORDENADAS", ordered_tasks)
   var time = 0;
 
   const scheduled_tasks = ordered_tasks.map(task => {
