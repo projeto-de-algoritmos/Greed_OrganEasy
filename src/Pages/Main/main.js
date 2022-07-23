@@ -2,20 +2,34 @@ import "./main.css";
 import { Button, Card, SideBar } from "../../Components";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import scheduleTasks from '../../util/ShedulingMinLateness'
 
 const Main = () => {
   const navigate = useNavigate();
   const [formSideBar, setFormSideBar] = useState([]);
-  const [card, setCard] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const handeldel = (index) => {
-    card.splice(index, 1);
-    setCard([...card]);
+    tasks.splice(index, 1);
+    setTasks([...tasks]);
   };
+
+  const handleSchedule = () => {
+    const schedule = scheduleTasks(tasks)
+    //setTasks(schedule)
+    console.log("SCHEDULE", schedule);
+
+    navigate("/resultado", {
+      state: {
+        array: schedule,
+        freeHours: 24 - schedule[schedule.length - 1].end, // Diminui o tempo do dia pelo horario da ultima tarefa
+      },
+    });
+  }
 
   useEffect(() => {
     if (formSideBar.length !== 0) {
-      return setCard((card) => [...card, formSideBar]);
+      return setTasks((card) => [...card, formSideBar]);
     }
   }, [formSideBar]);
   return (
@@ -23,8 +37,8 @@ const Main = () => {
       <SideBar setOnClick={setFormSideBar} />
       <div className="mainContainer">
         <div className="mainCard">
-          {card &&
-            card.map((item, index) => {
+          {tasks &&
+            tasks.map((item, index) => {
               return (
                 <div key={index}>
                   <Card
@@ -42,14 +56,7 @@ const Main = () => {
           <Button
             size="big"
             text="Organizar"
-            onClick={() => {
-              navigate("/resultado", {
-                state: {
-                  array: card,
-                  freeHours: 50,
-                },
-              });
-            }}
+            onClick={() => handleSchedule()}
           />
         </div>
       </div>

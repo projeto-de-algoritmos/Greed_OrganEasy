@@ -10,6 +10,18 @@
   margin-top: 20px;
 }
 
+.cardContainerLate {
+  width: 200px;
+  background-color: #cf4343;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+
 .titleCard {
   margin: 20px;
   margin-top: 30px;

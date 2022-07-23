@@ -10,8 +10,8 @@ const SideBar = ({ setOnClick }) => {
   const updateForm = () => {
     setOnClick({
       name: nameTask,
-      delivery: deliveryTime,
-      runtime: runtime,
+      delivery: Number(deliveryTime),
+      runtime: Number(runtime),
     });
   };
 

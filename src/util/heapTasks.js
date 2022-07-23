@@ -47,10 +47,10 @@ const heapSort = (tasks) => {
 
   return tasks;
 }
-/* TESTANDO ORDENAÇÃO
-const tasks = [{
+//TESTANDO ORDENAÇÃO
+/* const tasks = [{
   name: 'estudar',
-  delivery: 20,
+  delivery: 17,
   runtime: 2,
 }, {
   name: 'cantar',
@@ -58,22 +58,13 @@ const tasks = [{
   runtime: 4,
 }, {
   name: 'tocar',
-  delivery: 2,
+  delivery: 8,
   runtime: 4,
 }, {
   name: 'programar',
-  delivery: 8,
-  runtime: 1,
-}, {
-  name: 'dormir',
   delivery: 1,
   runtime: 1,
-},
-{
-  name: 'dormir mais um piuco',
-  delivery: 3,
-  runtime: 1,
-}]
+},] */
 
-console.log(heapSort(tasks)) */
+//console.log(heapSort(tasks))
 export default heapSort;
