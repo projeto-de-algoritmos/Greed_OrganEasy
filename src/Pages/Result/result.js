@@ -25,7 +25,11 @@ const Result = () => {
             ${
               location.state.freeHours <= 0
                 ? "sem nenhuma hora livre"
-                : `com ${msToTime(location.state.freeHours)} horas livres`
+                : `com ${
+                    msToTime(location.state.freeHours) === "00:00"
+                      ? "24"
+                      : msToTime(location.state.freeHours)
+                  } horas livres do seu dia para realizar novas atividades`
             }`
             : "Nenhuma tarefa foi adicionada"}
         </div>

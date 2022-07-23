@@ -2,7 +2,7 @@ import "./main.css";
 import { Button, Card, SideBar } from "../../Components";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import scheduleTasks from '../../util/ShedulingMinLateness'
+import scheduleTasks from "../../util/ShedulingMinLateness";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -15,15 +15,22 @@ const Main = () => {
   };
 
   const handleSchedule = () => {
-    const schedule = scheduleTasks(tasks)
+    const schedule = scheduleTasks(tasks);
+    var hours;
+
+    if (schedule.length === 0) {
+      hours = 0;
+    } else {
+      hours = schedule[schedule.length - 1].end;
+    }
 
     navigate("/resultado", {
       state: {
         array: schedule,
-        freeHours: 86400000 - schedule[schedule.length - 1].end, // Diminui o tempo do dia pelo horario da ultima tarefa
+        freeHours: 86400000 - hours, // Diminui o tempo do dia pelo horario da ultima tarefa
       },
     });
-  }
+  };
 
   useEffect(() => {
     if (formSideBar.length !== 0) {
