@@ -1,10 +1,25 @@
-.resultContainer {
-  position: relative;
-  margin: auto;
-  padding-left: 400px;
-}
-
 .resultButton {
   justify-content: center;
   text-align: center;
+  position: fixed;
+  bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.resultCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.textResult {
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
 }

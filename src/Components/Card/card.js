@@ -1,13 +1,21 @@
 import Icons from "../../Assets";
 import "./card.css";
 
-const Card = ({ task, deliveryTime, runtime, trash }) => {
+const Card = ({ task, deliveryTime, runtime, trash, onClick }) => {
+
   return (
     <div className="cardContainer">
-      {trash && <img className="trashImage" alt="trash" src={Icons.trash} />}
-      <div className="titleCard">Fazer projeto de PA</div>
-      <div className="textCard">Entrega - {20} hrs</div>
-      <div className="textCard">Execução - {2} hrs</div>
+      {trash && (
+        <img
+          className="trashImage"
+          alt="trash"
+          src={Icons.trash}
+          onClick={onClick}
+        />
+      )}
+      <div className="titleCard">{task}</div>
+      <div className="textCard">Entrega - {deliveryTime} hrs</div>
+      <div className="textCard">Execução - {runtime} hrs</div>
     </div>
   );
 };
