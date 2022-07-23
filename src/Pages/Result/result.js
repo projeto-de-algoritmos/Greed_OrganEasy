@@ -6,17 +6,27 @@ import { useLocation } from "react-router-dom";
 const Result = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state.array)
+
+  function msToTime(duration) {
+    var minutes = Math.floor((duration / (1000 * 60)) % 60);
+    var hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+
+    return hours + ":" + minutes;
+  }
   return (
     <>
       <div className="resultContainer">
         <div className="textResult">
-          {console.log(location.state)}
           {location.state && location.state.array.length > 0
             ? `Abaixo mostra a melhor ordem para realizar suas atividades,
-            ${location.state.freeHours <= 0 ?
-              'sem nenhuma hora livre'
-              : `com ${location.state.freeHours} horas livres`}`
+            ${
+              location.state.freeHours <= 0
+                ? "sem nenhuma hora livre"
+                : `com ${msToTime(location.state.freeHours)} horas livres`
+            }`
             : "Nenhuma tarefa foi adicionada"}
         </div>
         <div className="resultCard">
@@ -28,9 +38,9 @@ const Result = () => {
                     task={item.name}
                     deliveryTime={item.delivery}
                     runtime={item.runtime}
-                    start={item.start}
-                    end={item.end}
-                    delay={item.delay}
+                    start={msToTime(item.start)}
+                    end={msToTime(item.end)}
+                    delay={msToTime(item.delay)}
                     is_late={item.is_late}
                   />
                 </div>

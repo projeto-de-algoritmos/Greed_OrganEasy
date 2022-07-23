@@ -16,13 +16,11 @@ const Main = () => {
 
   const handleSchedule = () => {
     const schedule = scheduleTasks(tasks)
-    //setTasks(schedule)
-    console.log("SCHEDULE", schedule);
 
     navigate("/resultado", {
       state: {
         array: schedule,
-        freeHours: 24 - schedule[schedule.length - 1].end, // Diminui o tempo do dia pelo horario da ultima tarefa
+        freeHours: 86400000 - schedule[schedule.length - 1].end, // Diminui o tempo do dia pelo horario da ultima tarefa
       },
     });
   }

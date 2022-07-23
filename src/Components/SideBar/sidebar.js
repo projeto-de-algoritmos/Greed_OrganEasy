@@ -1,17 +1,30 @@
 import { useState } from "react";
 import Button from "../Button";
 import "./sidebar.css";
+import TimePicker from "react-time-picker";
 
 const SideBar = ({ setOnClick }) => {
   const [nameTask, setNameTask] = useState("");
-  const [deliveryTime, setDeliveryTime] = useState(0);
-  const [runtime, setRuntime] = useState(0);
+  const [deliveryTime, setDeliveryTime] = useState("00:00");
+  const [runtime, setRuntime] = useState("00:00");
 
   const updateForm = () => {
+    // Contextual usage
+    const time1 = deliveryTime;
+    const timeParts1 = time1.split(":");
+    const resultDelivery =
+      +timeParts1[0] * (60000 * 60) + +timeParts1[1] * 60000;
+
+    const time2 = runtime;
+    const timeParts2 = time2.split(":");
+    const resultRuntime =
+      +timeParts2[0] * (60000 * 60) + +timeParts2[1] * 60000;
+
+    console.log(resultDelivery);
     setOnClick({
       name: nameTask,
-      delivery: Number(deliveryTime),
-      runtime: Number(runtime),
+      delivery: Number(resultDelivery),
+      runtime: Number(resultRuntime),
     });
   };
 
@@ -29,33 +42,21 @@ const SideBar = ({ setOnClick }) => {
             onChange={(e) => setNameTask(e.target.value)}
             value={nameTask}
           />
-          <label htmlFor="deliveryTime">Hora de entrega (0 à 23 hrs)</label>
-          <input
-            type="number"
-            max={24}
-            min={0}
+          <label htmlFor="deliveryTime">Hora de entrega</label>
+          <TimePicker
             id="deliveryTime"
             name="deliveryTime"
-            placeholder="0 horas até 23 horas"
-            onChange={(e) => setDeliveryTime(e.target.value)}
+            className="inputTime"
+            onChange={setDeliveryTime}
             value={deliveryTime}
-            onKeyPress={(event) => {
-              event.preventDefault();
-            }}
           />
-          <label htmlFor="runtime">Tempo de execução (0 à 23 hrs)</label>
-          <input
-            type="number"
-            max={24}
-            min={0}
+          <label htmlFor="runtime">Tempo de execução</label>
+          <TimePicker
             id="runtime"
             name="runtime"
-            placeholder="0 horas até 23 horas"
-            onChange={(e) => setRuntime(e.target.value)}
+            className="inputTime"
+            onChange={setRuntime}
             value={runtime}
-            onKeyPress={(event) => {
-              event.preventDefault();
-            }}
           />
         </div>
         <Button text="Cadastrar" onClick={() => updateForm()} />
