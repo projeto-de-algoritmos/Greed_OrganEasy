@@ -32,7 +32,7 @@ const SideBar = ({ setOnClick }) => {
           <label htmlFor="deliveryTime">Hora de entrega (0 à 23 hrs)</label>
           <input
             type="number"
-            max={23}
+            max={24}
             min={0}
             id="deliveryTime"
             name="deliveryTime"
@@ -46,7 +46,7 @@ const SideBar = ({ setOnClick }) => {
           <label htmlFor="runtime">Tempo de execução (0 à 23 hrs)</label>
           <input
             type="number"
-            max={23}
+            max={24}
             min={0}
             id="runtime"
             name="runtime"
